@@ -1,37 +1,36 @@
-package com.example.calculator;
+package com.example.calculator.domain;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class Calculator implements Parcelable {
+public class CalculatorImpl implements Calculator {
     private String operand1 = "";
     private String operand2 = "";
     private String operation = "";
     private boolean err = false;
 
-    public Calculator() {
+    public CalculatorImpl() {
     }
 
 
-    public Calculator(Parcel in) {
+    public CalculatorImpl(Parcel in) {
         operand1 = in.readString();
         operand2 = in.readString();
         operation = in.readString();
         err = in.readByte() != 0;
     }
 
-    public static final Creator<Calculator> CREATOR = new Creator<Calculator>() {
+    public static final Creator<com.example.calculator.domain.CalculatorImpl> CREATOR = new Creator<com.example.calculator.domain.CalculatorImpl>() {
         @Override
-        public Calculator createFromParcel(Parcel in) {
-            return new Calculator(in);
+        public CalculatorImpl createFromParcel(Parcel in) {
+            return new CalculatorImpl(in);
         }
 
         @Override
-        public Calculator[] newArray(int size) {
-            return new Calculator[size];
+        public CalculatorImpl[] newArray(int size) {
+            return new CalculatorImpl[size];
         }
     };
 
@@ -70,7 +69,7 @@ public class Calculator implements Parcelable {
         }
     }
 
-    String getText() {
+    public String getText() {
         return operand1 + operation + operand2;
     }
 
