@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_padding">2dp</dimen>
+    <dimen name="text_size">30sp</dimen>
+    <dimen name="button_insert">3dp</dimen>
+</resources>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:columnCount="4"
-    android:padding="10dp"
+    android:padding="@dimen/screen_padding"
     android:rowCount="6">
 
     <ScrollView
@@ -21,11 +21,10 @@
             android:gravity="end|center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tool:text="200+800=1000"
-            android:textColor="@color/black" />
+            tool:text="200+800=1000" />
     </ScrollView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn_clear"
@@ -34,7 +33,7 @@
         android:layout_column="1"
         android:text="@string/button_c" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn_del"
@@ -42,7 +41,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_del" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn_div"
@@ -50,7 +49,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_div" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn7"
@@ -58,7 +57,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_7" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn8"
@@ -66,7 +65,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_8" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn9"
@@ -74,7 +73,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_9" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn_mul"
@@ -82,7 +81,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_mul" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn4"
@@ -90,7 +89,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_4" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn5"
@@ -98,7 +97,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_5" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn6"
@@ -106,7 +105,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_6" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn_min"
@@ -114,7 +113,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_min" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn1"
@@ -122,7 +121,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_1" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn2"
@@ -130,7 +129,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_2" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn3"
@@ -138,7 +137,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_3" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn_plus"
@@ -146,7 +145,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_plus" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn0"
@@ -156,7 +155,7 @@
         android:layout_gravity="fill_horizontal"
         android:text="@string/button_0" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn_point"
@@ -164,7 +163,7 @@
         android:layout_columnWeight="1"
         android:text="@string/button_point" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_height="0dp"
         android:layout_width="0dp"
         android:id="@+id/btn_equals"
