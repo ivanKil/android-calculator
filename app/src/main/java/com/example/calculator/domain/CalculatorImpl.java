@@ -47,7 +47,7 @@ public class CalculatorImpl implements Calculator {
             clear();
             return;
         }
-        if ("/*-+=".indexOf(symbol) != -1) {
+        if ("/*-+=".contains(symbol)) {
             if ("".equals(operand1)) {
                 operand1 = "0";
             }
@@ -61,10 +61,10 @@ public class CalculatorImpl implements Calculator {
         }
 
         if (operation.equals("")) {
-            if (!".".equals(symbol) || operand1.indexOf(".") == -1)
+            if (!".".equals(symbol) || !operand1.contains("."))
                 operand1 = operand1 + symbol;
         } else {
-            if (!".".equals(symbol) || operand2.indexOf(".") == -1)
+            if (!".".equals(symbol) || !operand2.contains("."))
                 operand2 = operand2 + symbol;
         }
     }
