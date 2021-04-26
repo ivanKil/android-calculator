@@ -1,6 +1,6 @@
-package com.example.calculator.ui;
+package com.example.calculator.mainscreen.ui;
 
-import com.example.calculator.domain.Calculator;
+import com.example.calculator.mainscreen.domain.Calculator;
 
 public class CalculatorPresenter {
     private CalculatorView view;
@@ -20,7 +20,17 @@ public class CalculatorPresenter {
         view.setScreenText(calculator.getText());
     }
 
+    public void setExternalText(String text) {
+        calculator.addText(text);
+        view.setScreenText(calculator.getText());
+
+    }
+
     public void detachView() {
         view = null;
+    }
+
+    public void showSettings() {
+        view.showSettings();
     }
 }

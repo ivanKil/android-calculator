@@ -1,6 +1,9 @@
-package com.example.calculator.ui;
+package com.example.calculator.mainscreen.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
@@ -10,8 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.calculator.R;
-import com.example.calculator.domain.Calculator;
-import com.example.calculator.domain.CalculatorImpl;
+import com.example.calculator.mainscreen.domain.Calculator;
+import com.example.calculator.mainscreen.domain.CalculatorImpl;
+import com.example.calculator.mainscreen.domain.ErrCalc;
+import com.example.calculator.settings.Settings;
+import com.example.calculator.settings.SettingsActivity;
 
 public class CalculatorActivity extends AppCompatActivity implements CalculatorView {
     private TextView screen;
@@ -24,6 +30,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Settings.setSavedTheme(this);
         setContentView(R.layout.activity_main);
         initView(savedInstanceState);
     }
@@ -48,6 +55,12 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
                 }
             });
         }
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            presenter.setExternalText(bundle.getString("TEXT"));
+        }
     }
 
     @Override
@@ -63,7 +76,13 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
     }
 
     public void setScreenText(String text) {
-        screen.setText(text);
+        if (ErrCalc.DIV_0.getText().equals(text)) {
+            screen.setText(getResources().getString(R.string.div_0));
+        } else if (ErrCalc.PARSE_TEXT.getText().equals(text)) {
+            screen.setText(getResources().getString(R.string.err_parse));
+        } else {
+            screen.setText(text);
+        }
         scrollScreen.fullScroll(View.FOCUS_DOWN);
     }
 
@@ -71,5 +90,24 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
     protected void onDestroy() {
         super.onDestroy();
         presenter.detachView();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            presenter.showSettings();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void showSettings() {
+        startActivity(new Intent(CalculatorActivity.this, SettingsActivity.class));
     }
 }

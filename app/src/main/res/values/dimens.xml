@@ -3,4 +3,5 @@
     <dimen name="screen_padding">2dp</dimen>
     <dimen name="text_size">30sp</dimen>
     <dimen name="button_insert">3dp</dimen>
+    <dimen name="radio_margin">10dp</dimen>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.calculator.domain;
+package com.example.calculator.mainscreen.domain;
 
 import android.os.Parcel;
 
@@ -22,7 +22,7 @@ public class CalculatorImpl implements Calculator {
         err = in.readByte() != 0;
     }
 
-    public static final Creator<com.example.calculator.domain.CalculatorImpl> CREATOR = new Creator<com.example.calculator.domain.CalculatorImpl>() {
+    public static final Creator<com.example.calculator.mainscreen.domain.CalculatorImpl> CREATOR = new Creator<com.example.calculator.mainscreen.domain.CalculatorImpl>() {
         @Override
         public CalculatorImpl createFromParcel(Parcel in) {
             return new CalculatorImpl(in);
@@ -33,6 +33,24 @@ public class CalculatorImpl implements Calculator {
             return new CalculatorImpl[size];
         }
     };
+
+    @Override
+    public boolean addText(String text) {
+        if (text != null) {
+            char[] array = text.toCharArray();
+            for (char symb : array) {
+                if (!"1234567890./*-+=".contains(String.valueOf(symb))) {
+                    setError(ErrCalc.PARSE_TEXT);
+                    return false;
+                }
+            }
+            for (char symb : array) {
+                addSymbol(String.valueOf(symb));
+            }
+            return true;
+        }
+        return false;
+    }
 
     public void addSymbol(String symbol) {
         if (err) {
@@ -78,7 +96,7 @@ public class CalculatorImpl implements Calculator {
             case "/":
                 if ("0".equals(operand2)) {
                     err = true;
-                    operand1 = "Ошибка - деление на ноль";
+                    setError(ErrCalc.DIV_0);
                     break;
                 }
                 operand1 = new BigDecimal(operand1).divide(new BigDecimal(operand2), new MathContext(10)).toString();
@@ -93,6 +111,13 @@ public class CalculatorImpl implements Calculator {
                 operand1 = new BigDecimal(operand1).subtract(new BigDecimal(operand2)).toString();
                 break;
         }
+        operation = "";
+        operand2 = "";
+    }
+
+    private void setError(ErrCalc errCalc) {
+        err = true;
+        operand1 = errCalc.getText();
         operation = "";
         operand2 = "";
     }
