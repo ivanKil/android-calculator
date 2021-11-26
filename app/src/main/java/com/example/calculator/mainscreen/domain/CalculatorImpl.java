@@ -4,6 +4,7 @@ import android.os.Parcel;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.ArrayList;
 
 public class CalculatorImpl implements Calculator {
     private String operand1 = "";
@@ -149,5 +150,11 @@ public class CalculatorImpl implements Calculator {
         dest.writeString(operand2);
         dest.writeString(operation);
         dest.writeByte((byte) (err ? 1 : 0));
+    }
+
+    public String[] arrayFrom(ArrayList<String> list) {
+        if (list == null)
+            return null;
+        return list.toArray(new String[list.size()]);
     }
 }
