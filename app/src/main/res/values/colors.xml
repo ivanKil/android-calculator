@@ -7,4 +7,9 @@
     <color name="button">#95A836</color>
     <color name="screen_text">#000000</color>
     <color name="button_text">#000000</color>
+
+    <color name="colorPrimary_theme2">#2196F3</color>
+    <color name="button_theme2">#FF5722</color>
+    <color name="screen_text_theme2">#000000</color>
+    <color name="button_text_theme2">#3F51B5</color>
 </resources>

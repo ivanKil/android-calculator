@@ -21,4 +21,22 @@
         <item name="android:insetLeft">@dimen/button_insert</item>
         <item name="backgroundTint">@color/button</item>
     </style>
+
+    <style name="сalcButton">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_columnWeight">1</item>
+    </style>
+
+    <style name="AppTheme2" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_theme2</item>
+        <item name="materialButtonStyle">@style/AppTheme.Button_theme2</item>
+        <item name="android:textViewStyle">@style/AppTheme.TextView</item>
+    </style>
+
+    <style name="AppTheme.Button_theme2" parent="AppTheme.Button">
+        <item name="android:textColor">@color/button_text_theme2</item>
+        <item name="backgroundTint">@color/button_theme2</item>
+    </style>
 </resources>

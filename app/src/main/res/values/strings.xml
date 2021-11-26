@@ -18,5 +18,10 @@
     <string name="button_equals">=</string>
     <string name="button_c">C</string>
     <string name="button_del"><![CDATA[<-]]></string>
-
+    <string name="action_settings">Настройки</string>
+    <string name="select_theme">Выберите тему</string>
+    <string name="select_theme1">Тема 1</string>
+    <string name="select_theme2">Тема 2</string>
+    <string name="div_0">Ошибка - деление на ноль</string>
+    <string name="err_parse">Ошибка разбора текста</string>
 </resources>
